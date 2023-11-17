@@ -332,3 +332,4 @@ __pycache__/
 *.xsd.cs
 
 # OpenCover UI anal
+/.vscode/settings.json
