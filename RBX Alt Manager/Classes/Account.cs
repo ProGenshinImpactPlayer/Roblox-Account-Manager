@@ -295,10 +295,10 @@ namespace RBX_Alt_Manager
             return false;
         }
 
-        public bool ChangePassword(string Current, string New)
+        public string ChangePassword(string Current, string New)
         {
-            if (!CheckPin()) return false;
-            if (!GetCSRFToken(out string Token)) return false;
+            if (!CheckPin()) return ErrorMessages.FAIL_TO_CHECK_PIN;
+            if (!GetCSRFToken(out string Token)) return ErrorMessages.FAIL_TO_GET_CSRF_TOKEN;
 
             RestRequest request = MakeRequest("v2/user/passwords/change", Method.Post)
                 .AddHeader("Referer", "https://www.roblox.com/")
@@ -321,22 +321,18 @@ namespace RBX_Alt_Manager
                     AccountManager.SaveAccounts();
                 }
                 else
-                    MessageBox.Show("An error occured while changing passwords, you will need to re-login with your new password!", "Account Manager", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return "An error occured while changing passwords, you will need to re-login with your new password!";
 
-                MessageBox.Show("Password changed!", "Account Manager", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
-                return true;
+                return "SUCCESS";
             }
 
-            MessageBox.Show("Failed to change password!", "Account Manager", MessageBoxButtons.OK, MessageBoxIcon.Error);
-
-            return false;
+            return $"Failed to change password! Response code: {response.StatusCode}";
         }
 
         public string ChangeEmail(string Password, string NewEmail)
         {
-            if (!CheckPin()) return "Failed to check pin.";
-            if (!GetCSRFToken(out string Token)) return "Failed to obtain csrf token.";
+            if (!CheckPin()) return ErrorMessages.FAIL_TO_CHECK_PIN;
+            if (!GetCSRFToken(out string Token)) return ErrorMessages.FAIL_TO_GET_CSRF_TOKEN;
 
             RestRequest request = MakeRequest("v1/email", Method.Post)
                 .AddHeader("Referer", "https://www.roblox.com/")

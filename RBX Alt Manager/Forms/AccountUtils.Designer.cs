@@ -83,6 +83,7 @@
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(205, 20);
             this.textBox1.TabIndex = 1;
+            this.EmailTip.SetToolTip(this.textBox1, "Saved account password is used when this box is empty.");
             // 
             // label2
             // 

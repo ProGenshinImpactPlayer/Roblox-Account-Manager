@@ -382,6 +382,7 @@
     <Compile Include="Classes\AccountBrowser.cs" />
     <Compile Include="Classes\ClientSettingsPatcher.cs" />
     <Compile Include="Classes\Cryptography.cs" />
+    <Compile Include="Classes\ErrorMessages.cs" />
     <Compile Include="Classes\MenuButton.cs">
       <SubType>Component</SubType>
     </Compile>

@@ -120,7 +120,26 @@ namespace RBX_Alt_Manager
         {
             if (AccountManager.SelectedAccount == null) return;
 
-            AccountManager.SelectedAccount.ChangePassword(textBox1.Text, textBox2.Text);
+            string oldPassword;
+            if (textBox1.Text != "")
+            {
+                oldPassword = textBox1.Text;
+            }
+            else
+            {
+                oldPassword = AccountManager.SelectedAccount.Password;
+            }
+
+            string newPassword = textBox2.Text;
+
+            string RSP = AccountManager.SelectedAccount.ChangePassword(oldPassword, newPassword);
+
+            if (RSP != "SUCCESS")
+            {
+                MessageBox.Show(RSP, "Account Manager", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            MessageBox.Show("Password changed!", "Account Manager", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
         private void button3_Click(object sender, EventArgs e)
