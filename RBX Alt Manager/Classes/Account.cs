@@ -333,10 +333,10 @@ namespace RBX_Alt_Manager
             return false;
         }
 
-        public bool ChangeEmail(string Password, string NewEmail)
+        public string ChangeEmail(string Password, string NewEmail)
         {
-            if (!CheckPin()) return false;
-            if (!GetCSRFToken(out string Token)) return false;
+            if (!CheckPin()) return "Failed to check pin.";
+            if (!GetCSRFToken(out string Token)) return "Failed to obtain csrf token.";
 
             RestRequest request = MakeRequest("v1/email", Method.Post)
                 .AddHeader("Referer", "https://www.roblox.com/")
@@ -349,14 +349,11 @@ namespace RBX_Alt_Manager
 
             if (response.IsSuccessful && response.StatusCode == HttpStatusCode.OK)
             {
-                MessageBox.Show("Email changed!", "Account Manager", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
-                return true;
+                return "SUCCESS";
             }
 
-            MessageBox.Show("Failed to change email, maybe your password is incorrect!", "Account Manager", MessageBoxButtons.OK, MessageBoxIcon.Error);
 
-            return false;
+            return $"Failed to change email. Response code is {response.StatusCode}";
         }
 
         public bool LogOutOfOtherSessions(bool Internal = false)

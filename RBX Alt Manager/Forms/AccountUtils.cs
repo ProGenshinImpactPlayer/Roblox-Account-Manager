@@ -127,7 +127,18 @@ namespace RBX_Alt_Manager
         {
             if (AccountManager.SelectedAccount == null) return;
 
-            AccountManager.SelectedAccount.ChangeEmail(textBox1.Text, textBox3.Text);
+            
+            string RSP = AccountManager.SelectedAccount.ChangeEmail(textBox1.Text, textBox3.Text);
+
+            if (RSP == "SUCCESS")
+            {
+                MessageBox.Show("Email changed!", "Account Manager", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            else
+            {
+                MessageBox.Show(RSP, "Account Manager", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            
         }
 
         private void Block_Click(object sender, EventArgs e)
