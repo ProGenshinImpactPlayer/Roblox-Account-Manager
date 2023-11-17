@@ -405,7 +405,6 @@
     <Compile Include="Classes\RobloxWatcher.cs" />
     <Compile Include="Classes\Utilities.cs" />
     <Compile Include="Classes\WM.cs" />
-    <None Include="DO NOT UPGRADE CEFSHARP - BREAKS FOR WIN7.note" />
     <Compile Include="Forms\MissingAssets.cs">
       <SubType>Form</SubType>
     </Compile>
