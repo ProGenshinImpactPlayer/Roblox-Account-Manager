@@ -14,18 +14,6 @@ This is a forked version of the original Roblox Account Manager, I think the ori
 
 As I am starting out, pull requests are welcomed.
 
-## Note
-There are a few things that I will want to change remove or added in this fork.
-
-### Things that I am going to remove
-- [ ] Removing donate button
-- [ ] Removing all features for exploiting
-- [ ] Removing releases, if a user wants to use the program, they are required to compile it themselves or get it from [actions](https://github.com/ProGenshinImpactPlayer/Roblox-Account-Manager/actions/runs/6918533590)
-### Things that I am going to add
-- [ ] Adding more features will be available in the developer API
-- [ ] Adding support for using multiple accounts in account utilities
-### Things that I am going to change
-- [ ] Changing function returns in the Account class, instead of returning a `boolean` and showing a message box, I will return a string and use the string to show a message box [here is an example](https://github.com/ProGenshinImpactPlayer/Roblox-Account-Manager/commit/cd470a2d2aa58fed96ac211d0d0dd389d9e43603)
 # Roblox Account Manager
 Application that allows you to add multiple accounts into one application allowing you to easily play on alt accounts without having to change accounts
 
