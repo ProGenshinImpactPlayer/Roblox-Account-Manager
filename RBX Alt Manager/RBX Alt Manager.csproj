@@ -656,6 +656,8 @@
   <Import Project="..\packages\Fody.6.7.0\build\Fody.targets" Condition="Exists('..\packages\Fody.6.7.0\build\Fody.targets')" />
   <Import Project="..\packages\Costura.Fody.5.7.0\build\Costura.Fody.targets" Condition="Exists('..\packages\Costura.Fody.5.7.0\build\Costura.Fody.targets')" />
   <Import Project="..\packages\CefSharp.Common.119.1.20\build\CefSharp.Common.targets" Condition="Exists('..\packages\CefSharp.Common.119.1.20\build\CefSharp.Common.targets')" />
-
-  <PublishSingleFile>true</PublishSingleFile>
+  <PropertyGroup>
+    <PublishSingleFile>true</PublishSingleFile>
+  </<PropertyGroup>>
+  
 </Project>
