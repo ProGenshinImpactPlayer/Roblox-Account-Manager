@@ -20,6 +20,7 @@ There are a few things that I will want to change remove or added in this fork.
 ### Things that I am going to remove
 - [ ] Removing donate button
 - [ ] Removing all features for exploiting
+- [ ] Removing releases, if a user wants to use the program, they are required to compile it themselves or get it from [actions](https://github.com/ProGenshinImpactPlayer/Roblox-Account-Manager/actions/runs/6918533590)
 ### Things that I am going to add
 - [ ] Adding more features will be available in the developer API
 - [ ] Adding support for using multiple accounts in account utilities
