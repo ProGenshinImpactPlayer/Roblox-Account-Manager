@@ -5,6 +5,7 @@ using Microsoft.WindowsAPICodePack.Dialogs;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using PuppeteerSharp;
+using Python.Runtime;
 using RBX_Alt_Manager.Classes;
 using RBX_Alt_Manager.Forms;
 using RBX_Alt_Manager.Properties;
@@ -61,6 +62,7 @@ namespace RBX_Alt_Manager
         private AccountControl ControlForm;
         private SettingsForm SettingsForm;
         private RecentGamesForm RGForm;
+        private RAMScriptExecutorForm RAMSEForm;
         private readonly static DateTime startTime = DateTime.Now;
         public static bool IsTeleport = false;
         public static bool UseOldJoin = false;
@@ -79,6 +81,7 @@ namespace RBX_Alt_Manager
         public static IniSection AccountControl;
         public static IniSection Watcher;
         public static IniSection Prompts;
+        public static IniSection ScriptSettings;
 
         private static Mutex rbxMultiMutex;
         private readonly static object saveLock = new object();
@@ -117,6 +120,7 @@ namespace RBX_Alt_Manager
             AccountControl = IniSettings.Section("AccountControl");
             Watcher = IniSettings.Section("Watcher");
             Prompts = IniSettings.Section("Prompts");
+            ScriptSettings = IniSettings.Section("Script");
 
             if (!General.Exists("CheckForUpdates")) General.Set("CheckForUpdates", "true");
             if (!General.Exists("AccountJoinDelay")) General.Set("AccountJoinDelay", "8");
@@ -163,6 +167,8 @@ namespace RBX_Alt_Manager
             if (!AccountControl.Exists("RelaunchDelay")) AccountControl.Set("RelaunchDelay", "60");
             if (!AccountControl.Exists("LauncherDelayNumber")) AccountControl.Set("LauncherDelayNumber", "9");
             if (!AccountControl.Exists("NexusPort")) AccountControl.Set("NexusPort", "5242");
+
+            if (!ScriptSettings.Exists("PythonDLL")) ScriptSettings.Set("PythonDLL", "None");
 
             InitializeComponent();
             this.Rescale();
@@ -646,6 +652,7 @@ namespace RBX_Alt_Manager
             if (UpdateDir.Exists)
                 UpdateDir.RecursiveDelete();
 
+            RAMSEForm = new RAMScriptExecutorForm();
             afform = new ArgumentsForm();
             ServerListForm = new ServerList();
             UtilsForm = new AccountUtils();
@@ -685,7 +692,12 @@ namespace RBX_Alt_Manager
                 AccountsStrip.Items.Remove(copyAppLinkToolStripMenuItem);
             }
             else
+            {
                 ArgumentsB.Visible = true;
+                RAMScriptButton.Visible = true;
+            }
+                
+                
 
             if (General.Get<bool>("HideUsernames"))
                 HideUsernamesCheckbox.Checked = true;
@@ -1420,19 +1432,18 @@ namespace RBX_Alt_Manager
 
         private void AccountsView_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (AccountsView.SelectedItems.Count != 1)
+            SelectedAccount = null;
+            SelectedAccountItem = null;
+            SelectedAccounts = AccountsView.SelectedObjects.Cast<Account>().ToList();
+            if (AccountsView.SelectedItems.Count > 1)
             {
-                SelectedAccount = null;
-                SelectedAccountItem = null;
-
-                if (AccountsView.SelectedObjects.Count > 1)
-                    SelectedAccounts = AccountsView.SelectedObjects.Cast<Account>().ToList();
-
                 return;
             }
-
-            SelectedAccount = AccountsView.SelectedObject as Account;
-            SelectedAccountItem = AccountsView.SelectedItem;
+            if (AccountsView.SelectedItems.Count == 1 )
+            {
+                SelectedAccount = AccountsView.SelectedObject as Account;
+                SelectedAccountItem = AccountsView.SelectedItem;
+            }
 
             if (SelectedAccount == null) return;
 
@@ -1602,6 +1613,7 @@ namespace RBX_Alt_Manager
             }
 
             AltManagerWS?.Stop();
+            PythonEngine.Shutdown();
 
             if (PlaceID == null || string.IsNullOrEmpty(PlaceID.Text)) return;
 
@@ -2167,6 +2179,15 @@ namespace RBX_Alt_Manager
             }
 
             try { await Presence.UpdatePresence(VisibleAccounts.Select(account => account.UserID).ToArray()); } catch { }
+        }
+
+        private void RAMScriptButton_Click(object sender, EventArgs e)
+        {
+            if (RAMSEForm != null)
+                if (RAMSEForm.Visible)
+                    RAMSEForm.HideForm();
+                else
+                    RAMSEForm.ShowForm();
         }
     }
 }
