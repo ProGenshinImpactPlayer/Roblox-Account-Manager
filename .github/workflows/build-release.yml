@@ -43,6 +43,7 @@ jobs:
       # Add additional options to the MSBuild command line here (like platform or verbosity level).
       # See https://docs.microsoft.com/visualstudio/msbuild/msbuild-command-line-reference
       run: msbuild ${{env.SOLUTION_FILE_PATH}} /m /p:platform=Release /p:Configuration=x64
+    - name: Upload Release x64
       uses: actions/upload-artifact@v3
       with:
           name: Release-x64
@@ -53,6 +54,7 @@ jobs:
       # Add additional options to the MSBuild command line here (like platform or verbosity level).
       # See https://docs.microsoft.com/visualstudio/msbuild/msbuild-command-line-reference
       run: msbuild ${{env.SOLUTION_FILE_PATH}} /m /p:platform=Release /p:Configuration=x84
+    - name: Upload Release x86
       uses: actions/upload-artifact@v3
       with:
           name: Release-x86
@@ -63,6 +65,7 @@ jobs:
       # Add additional options to the MSBuild command line here (like platform or verbosity level).
       # See https://docs.microsoft.com/visualstudio/msbuild/msbuild-command-line-reference
       run: msbuild ${{env.SOLUTION_FILE_PATH}} /m /p:platform=Release /p:Configuration=AnyCPU
+    - name: Upload Release AnyCPU
       uses: actions/upload-artifact@v3
       with:
           name: Release-AnyCPU
