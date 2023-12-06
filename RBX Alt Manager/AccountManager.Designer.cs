@@ -148,33 +148,33 @@ namespace RBX_Alt_Manager
             this.byCookieToolStripMenuItem,
             this.customURLJSToolStripMenuItem});
             this.AddAccountsStrip.Name = "AddAccountsStrip";
-            this.AddAccountsStrip.Size = new System.Drawing.Size(185, 92);
+            this.AddAccountsStrip.Size = new System.Drawing.Size(179, 92);
             // 
             // manualToolStripMenuItem
             // 
             this.manualToolStripMenuItem.Name = "manualToolStripMenuItem";
-            this.manualToolStripMenuItem.Size = new System.Drawing.Size(184, 22);
+            this.manualToolStripMenuItem.Size = new System.Drawing.Size(178, 22);
             this.manualToolStripMenuItem.Text = "Manual Login";
             this.manualToolStripMenuItem.Click += new System.EventHandler(this.manualToolStripMenuItem_Click);
             // 
             // bulkUserPassToolStripMenuItem
             // 
             this.bulkUserPassToolStripMenuItem.Name = "bulkUserPassToolStripMenuItem";
-            this.bulkUserPassToolStripMenuItem.Size = new System.Drawing.Size(184, 22);
+            this.bulkUserPassToolStripMenuItem.Size = new System.Drawing.Size(178, 22);
             this.bulkUserPassToolStripMenuItem.Text = "User:Pass";
             this.bulkUserPassToolStripMenuItem.Click += new System.EventHandler(this.bulkUserPassToolStripMenuItem_Click);
             // 
             // byCookieToolStripMenuItem
             // 
             this.byCookieToolStripMenuItem.Name = "byCookieToolStripMenuItem";
-            this.byCookieToolStripMenuItem.Size = new System.Drawing.Size(184, 22);
+            this.byCookieToolStripMenuItem.Size = new System.Drawing.Size(178, 22);
             this.byCookieToolStripMenuItem.Text = "Cookie(s)";
             this.byCookieToolStripMenuItem.Click += new System.EventHandler(this.byCookieToolStripMenuItem_Click);
             // 
             // customURLJSToolStripMenuItem
             // 
             this.customURLJSToolStripMenuItem.Name = "customURLJSToolStripMenuItem";
-            this.customURLJSToolStripMenuItem.Size = new System.Drawing.Size(184, 22);
+            this.customURLJSToolStripMenuItem.Size = new System.Drawing.Size(178, 22);
             this.customURLJSToolStripMenuItem.Text = "Custom (URL + JS)";
             this.customURLJSToolStripMenuItem.Click += new System.EventHandler(this.customURLJSToolStripMenuItem_Click);
             // 
@@ -273,19 +273,19 @@ namespace RBX_Alt_Manager
             this.copyRbxplayerLinkToolStripMenuItem,
             this.copyAppLinkToolStripMenuItem});
             this.AccountsStrip.Name = "contextMenuStrip1";
-            this.AccountsStrip.Size = new System.Drawing.Size(221, 290);
+            this.AccountsStrip.Size = new System.Drawing.Size(216, 290);
             // 
             // addAccountsToolStripMenuItem
             // 
             this.addAccountsToolStripMenuItem.Name = "addAccountsToolStripMenuItem";
-            this.addAccountsToolStripMenuItem.Size = new System.Drawing.Size(220, 22);
+            this.addAccountsToolStripMenuItem.Size = new System.Drawing.Size(215, 22);
             this.addAccountsToolStripMenuItem.Text = "Add Account";
             this.addAccountsToolStripMenuItem.Click += new System.EventHandler(this.addAccountsToolStripMenuItem_Click);
             // 
             // removeAccountToolStripMenuItem
             // 
             this.removeAccountToolStripMenuItem.Name = "removeAccountToolStripMenuItem";
-            this.removeAccountToolStripMenuItem.Size = new System.Drawing.Size(220, 22);
+            this.removeAccountToolStripMenuItem.Size = new System.Drawing.Size(215, 22);
             this.removeAccountToolStripMenuItem.Text = "Remove Account";
             this.removeAccountToolStripMenuItem.Click += new System.EventHandler(this.removeAccountToolStripMenuItem_Click);
             // 
@@ -298,55 +298,55 @@ namespace RBX_Alt_Manager
             this.copyProfileToolStripMenuItem,
             this.copyUserIdToolStripMenuItem});
             this.copyToolStripMenuItem.Name = "copyToolStripMenuItem";
-            this.copyToolStripMenuItem.Size = new System.Drawing.Size(220, 22);
+            this.copyToolStripMenuItem.Size = new System.Drawing.Size(215, 22);
             this.copyToolStripMenuItem.Text = "Copy";
             // 
             // copyUsernameToolStripMenuItem
             // 
             this.copyUsernameToolStripMenuItem.Name = "copyUsernameToolStripMenuItem";
-            this.copyUsernameToolStripMenuItem.Size = new System.Drawing.Size(214, 22);
+            this.copyUsernameToolStripMenuItem.Size = new System.Drawing.Size(205, 22);
             this.copyUsernameToolStripMenuItem.Text = "Copy Username";
             this.copyUsernameToolStripMenuItem.Click += new System.EventHandler(this.copyUsernameToolStripMenuItem_Click);
             // 
             // copyPasswordToolStripMenuItem
             // 
             this.copyPasswordToolStripMenuItem.Name = "copyPasswordToolStripMenuItem";
-            this.copyPasswordToolStripMenuItem.Size = new System.Drawing.Size(214, 22);
+            this.copyPasswordToolStripMenuItem.Size = new System.Drawing.Size(205, 22);
             this.copyPasswordToolStripMenuItem.Text = "Copy Password";
             this.copyPasswordToolStripMenuItem.Click += new System.EventHandler(this.copyPasswordToolStripMenuItem_Click);
             // 
             // copyUserPassComboToolStripMenuItem
             // 
             this.copyUserPassComboToolStripMenuItem.Name = "copyUserPassComboToolStripMenuItem";
-            this.copyUserPassComboToolStripMenuItem.Size = new System.Drawing.Size(214, 22);
+            this.copyUserPassComboToolStripMenuItem.Size = new System.Drawing.Size(205, 22);
             this.copyUserPassComboToolStripMenuItem.Text = "Copy User Pass Combo";
             this.copyUserPassComboToolStripMenuItem.Click += new System.EventHandler(this.copyUserPassComboToolStripMenuItem_Click);
             // 
             // copyProfileToolStripMenuItem
             // 
             this.copyProfileToolStripMenuItem.Name = "copyProfileToolStripMenuItem";
-            this.copyProfileToolStripMenuItem.Size = new System.Drawing.Size(214, 22);
+            this.copyProfileToolStripMenuItem.Size = new System.Drawing.Size(205, 22);
             this.copyProfileToolStripMenuItem.Text = "Copy Profile";
             this.copyProfileToolStripMenuItem.Click += new System.EventHandler(this.copyProfileToolStripMenuItem_Click);
             // 
             // copyUserIdToolStripMenuItem
             // 
             this.copyUserIdToolStripMenuItem.Name = "copyUserIdToolStripMenuItem";
-            this.copyUserIdToolStripMenuItem.Size = new System.Drawing.Size(214, 22);
+            this.copyUserIdToolStripMenuItem.Size = new System.Drawing.Size(205, 22);
             this.copyUserIdToolStripMenuItem.Text = "Copy UserId";
             this.copyUserIdToolStripMenuItem.Click += new System.EventHandler(this.copyUserIdToolStripMenuItem_Click);
             // 
             // sortAlphabeticallyToolStripMenuItem
             // 
             this.sortAlphabeticallyToolStripMenuItem.Name = "sortAlphabeticallyToolStripMenuItem";
-            this.sortAlphabeticallyToolStripMenuItem.Size = new System.Drawing.Size(220, 22);
+            this.sortAlphabeticallyToolStripMenuItem.Size = new System.Drawing.Size(215, 22);
             this.sortAlphabeticallyToolStripMenuItem.Text = "Sort Alphabetically";
             this.sortAlphabeticallyToolStripMenuItem.Click += new System.EventHandler(this.sortAlphabeticallyToolStripMenuItem_Click);
             // 
             // quickLogInToolStripMenuItem
             // 
             this.quickLogInToolStripMenuItem.Name = "quickLogInToolStripMenuItem";
-            this.quickLogInToolStripMenuItem.Size = new System.Drawing.Size(220, 22);
+            this.quickLogInToolStripMenuItem.Size = new System.Drawing.Size(215, 22);
             this.quickLogInToolStripMenuItem.Text = "Quick Log In";
             this.quickLogInToolStripMenuItem.Click += new System.EventHandler(this.quickLogInToolStripMenuItem_Click);
             // 
@@ -357,27 +357,27 @@ namespace RBX_Alt_Manager
             this.moveToToolStripMenuItem,
             this.copyGroupToolStripMenuItem});
             this.moveGroupUpToolStripMenuItem.Name = "moveGroupUpToolStripMenuItem";
-            this.moveGroupUpToolStripMenuItem.Size = new System.Drawing.Size(220, 22);
+            this.moveGroupUpToolStripMenuItem.Size = new System.Drawing.Size(215, 22);
             this.moveGroupUpToolStripMenuItem.Text = "Groups";
             // 
             // toggleToolStripMenuItem
             // 
             this.toggleToolStripMenuItem.Name = "toggleToolStripMenuItem";
-            this.toggleToolStripMenuItem.Size = new System.Drawing.Size(178, 22);
+            this.toggleToolStripMenuItem.Size = new System.Drawing.Size(174, 22);
             this.toggleToolStripMenuItem.Text = "Toggle";
             this.toggleToolStripMenuItem.Click += new System.EventHandler(this.toggleToolStripMenuItem_Click);
             // 
             // moveToToolStripMenuItem
             // 
             this.moveToToolStripMenuItem.Name = "moveToToolStripMenuItem";
-            this.moveToToolStripMenuItem.Size = new System.Drawing.Size(178, 22);
+            this.moveToToolStripMenuItem.Size = new System.Drawing.Size(174, 22);
             this.moveToToolStripMenuItem.Text = "Move Account To";
             this.moveToToolStripMenuItem.Click += new System.EventHandler(this.moveToToolStripMenuItem_Click);
             // 
             // copyGroupToolStripMenuItem
             // 
             this.copyGroupToolStripMenuItem.Name = "copyGroupToolStripMenuItem";
-            this.copyGroupToolStripMenuItem.Size = new System.Drawing.Size(178, 22);
+            this.copyGroupToolStripMenuItem.Size = new System.Drawing.Size(174, 22);
             this.copyGroupToolStripMenuItem.Text = "Copy Group";
             this.copyGroupToolStripMenuItem.Click += new System.EventHandler(this.copyGroupToolStripMenuItem_Click);
             // 
@@ -387,62 +387,62 @@ namespace RBX_Alt_Manager
             this.groupsToolStripMenuItem,
             this.infoToolStripMenuItem1});
             this.infoToolStripMenuItem.Name = "infoToolStripMenuItem";
-            this.infoToolStripMenuItem.Size = new System.Drawing.Size(220, 22);
+            this.infoToolStripMenuItem.Size = new System.Drawing.Size(215, 22);
             this.infoToolStripMenuItem.Text = "Help";
             // 
             // groupsToolStripMenuItem
             // 
             this.groupsToolStripMenuItem.Name = "groupsToolStripMenuItem";
-            this.groupsToolStripMenuItem.Size = new System.Drawing.Size(119, 22);
+            this.groupsToolStripMenuItem.Size = new System.Drawing.Size(115, 22);
             this.groupsToolStripMenuItem.Text = "Groups";
             this.groupsToolStripMenuItem.Click += new System.EventHandler(this.groupsToolStripMenuItem_Click);
             // 
             // infoToolStripMenuItem1
             // 
             this.infoToolStripMenuItem1.Name = "infoToolStripMenuItem1";
-            this.infoToolStripMenuItem1.Size = new System.Drawing.Size(119, 22);
+            this.infoToolStripMenuItem1.Size = new System.Drawing.Size(115, 22);
             this.infoToolStripMenuItem1.Text = "Info";
             this.infoToolStripMenuItem1.Click += new System.EventHandler(this.infoToolStripMenuItem1_Click);
             // 
             // viewFieldsToolStripMenuItem
             // 
             this.viewFieldsToolStripMenuItem.Name = "viewFieldsToolStripMenuItem";
-            this.viewFieldsToolStripMenuItem.Size = new System.Drawing.Size(220, 22);
+            this.viewFieldsToolStripMenuItem.Size = new System.Drawing.Size(215, 22);
             this.viewFieldsToolStripMenuItem.Text = "View Fields";
             this.viewFieldsToolStripMenuItem.Click += new System.EventHandler(this.viewFieldsToolStripMenuItem_Click);
             // 
             // ShowDetailsToolStripMenuItem
             // 
             this.ShowDetailsToolStripMenuItem.Name = "ShowDetailsToolStripMenuItem";
-            this.ShowDetailsToolStripMenuItem.Size = new System.Drawing.Size(220, 22);
+            this.ShowDetailsToolStripMenuItem.Size = new System.Drawing.Size(215, 22);
             this.ShowDetailsToolStripMenuItem.Text = "Dump Details";
             this.ShowDetailsToolStripMenuItem.Click += new System.EventHandler(this.ShowDetailsToolStripMenuItem_Click);
             // 
             // getAuthenticationTicketToolStripMenuItem
             // 
             this.getAuthenticationTicketToolStripMenuItem.Name = "getAuthenticationTicketToolStripMenuItem";
-            this.getAuthenticationTicketToolStripMenuItem.Size = new System.Drawing.Size(220, 22);
+            this.getAuthenticationTicketToolStripMenuItem.Size = new System.Drawing.Size(215, 22);
             this.getAuthenticationTicketToolStripMenuItem.Text = "Get Authentication Ticket";
             this.getAuthenticationTicketToolStripMenuItem.Click += new System.EventHandler(this.getAuthenticationTicketToolStripMenuItem_Click);
             // 
             // copySecurityTokenToolStripMenuItem
             // 
             this.copySecurityTokenToolStripMenuItem.Name = "copySecurityTokenToolStripMenuItem";
-            this.copySecurityTokenToolStripMenuItem.Size = new System.Drawing.Size(220, 22);
+            this.copySecurityTokenToolStripMenuItem.Size = new System.Drawing.Size(215, 22);
             this.copySecurityTokenToolStripMenuItem.Text = "Copy Security Token";
             this.copySecurityTokenToolStripMenuItem.Click += new System.EventHandler(this.copySecurityTokenToolStripMenuItem_Click);
             // 
             // copyRbxplayerLinkToolStripMenuItem
             // 
             this.copyRbxplayerLinkToolStripMenuItem.Name = "copyRbxplayerLinkToolStripMenuItem";
-            this.copyRbxplayerLinkToolStripMenuItem.Size = new System.Drawing.Size(220, 22);
+            this.copyRbxplayerLinkToolStripMenuItem.Size = new System.Drawing.Size(215, 22);
             this.copyRbxplayerLinkToolStripMenuItem.Text = "Copy rbx-player Link";
             this.copyRbxplayerLinkToolStripMenuItem.Click += new System.EventHandler(this.copyRbxplayerLinkToolStripMenuItem_Click);
             // 
             // copyAppLinkToolStripMenuItem
             // 
             this.copyAppLinkToolStripMenuItem.Name = "copyAppLinkToolStripMenuItem";
-            this.copyAppLinkToolStripMenuItem.Size = new System.Drawing.Size(220, 22);
+            this.copyAppLinkToolStripMenuItem.Size = new System.Drawing.Size(215, 22);
             this.copyAppLinkToolStripMenuItem.Text = "Copy App Link";
             this.copyAppLinkToolStripMenuItem.Click += new System.EventHandler(this.copyAppLinkToolStripMenuItem_Click);
             // 
@@ -525,26 +525,26 @@ namespace RBX_Alt_Manager
             this.URLJSToolStripMenuItem,
             this.joinGroupToolStripMenuItem});
             this.OpenBrowserStrip.Name = "OpenBrowserStrip";
-            this.OpenBrowserStrip.Size = new System.Drawing.Size(174, 70);
+            this.OpenBrowserStrip.Size = new System.Drawing.Size(168, 70);
             // 
             // customURLToolStripMenuItem
             // 
             this.customURLToolStripMenuItem.Name = "customURLToolStripMenuItem";
-            this.customURLToolStripMenuItem.Size = new System.Drawing.Size(173, 22);
+            this.customURLToolStripMenuItem.Size = new System.Drawing.Size(167, 22);
             this.customURLToolStripMenuItem.Text = "URL";
             this.customURLToolStripMenuItem.Click += new System.EventHandler(this.customURLToolStripMenuItem_Click);
             // 
             // URLJSToolStripMenuItem
             // 
             this.URLJSToolStripMenuItem.Name = "URLJSToolStripMenuItem";
-            this.URLJSToolStripMenuItem.Size = new System.Drawing.Size(173, 22);
+            this.URLJSToolStripMenuItem.Size = new System.Drawing.Size(167, 22);
             this.URLJSToolStripMenuItem.Text = "URL + Javascript";
             this.URLJSToolStripMenuItem.Click += new System.EventHandler(this.URLJSToolStripMenuItem_Click);
             // 
             // joinGroupToolStripMenuItem
             // 
             this.joinGroupToolStripMenuItem.Name = "joinGroupToolStripMenuItem";
-            this.joinGroupToolStripMenuItem.Size = new System.Drawing.Size(173, 22);
+            this.joinGroupToolStripMenuItem.Size = new System.Drawing.Size(167, 22);
             this.joinGroupToolStripMenuItem.Text = "Join Group";
             this.joinGroupToolStripMenuItem.Click += new System.EventHandler(this.joinGroupToolStripMenuItem_Click);
             // 
@@ -629,7 +629,6 @@ namespace RBX_Alt_Manager
             this.JobID.TabIndex = 2;
             this.SaveTooltip.SetToolTip(this.JobID, "Job ID is a unique ID assigned to every roblox server.\r\nYou may also put a Privat" +
         "e Server link in this box to join it.");
-            
             // 
             // AccountsView
             // 

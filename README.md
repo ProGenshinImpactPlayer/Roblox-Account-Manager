@@ -1,12 +1,4 @@
-[![Download](https://img.shields.io/github/v/release/ic3w0lf22/Roblox-Account-Manager)](https://github.com/ic3w0lf22/Roblox-Account-Manager/releases/latest)
-[![Latest Downloads](https://img.shields.io/github/downloads/ic3w0lf22/Roblox-Account-Manager/latest/total)](https://github.com/ic3w0lf22/Roblox-Account-Manager/releases)
-[![Discord](https://img.shields.io/discord/871845273800957982?label=Discord)](https://discord.gg/MsEH7smXY8)
-![License](https://img.shields.io/github/license/ic3w0lf22/Roblox-Account-Manager)
-
-<!-- BEGIN LATEST DOWNLOAD BUTTON -->
-[![Download zip](https://custom-icon-badges.herokuapp.com/badge/-Download-blue?style=for-the-badge&logo=download&logoColor=white "Download")](https://github.com/ic3w0lf22/Roblox-Account-Manager/releases/download/3.6.1/Roblox.Account.Manager.3.6.1.zip)
-<!-- END LATEST DOWNLOAD BUTTON -->
-
+[![MSBuild Release](https://github.com/qwqtoday/Roblox-Account-Manager/actions/workflows/build-release.yml/badge.svg)](https://github.com/qwqtoday/Roblox-Account-Manager/actions/workflows/build-release.yml)
 [Click here to view Roblox Account Manager features](https://github.com/ic3w0lf22/Roblox-Account-Manager/blob/master/README.md#features)
 
 # Fork

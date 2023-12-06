@@ -155,10 +155,11 @@ namespace RBX_Alt_Manager
             if (!WebServer.Exists("AllowGetAccounts")) WebServer.Set("AllowGetAccounts", "false");
             if (!WebServer.Exists("AllowLaunchAccount")) WebServer.Set("AllowLaunchAccount", "false");
             if (!WebServer.Exists("AllowAccountEditing")) WebServer.Set("AllowAccountEditing", "false");
-            if (!WebServer.Exists("Password")) WebServer.Set("Password", ""); else WSPassword = WebServer.Get("Password");
+            if (!WebServer.Exists("Password")) WebServer.Set("Password", "Password"); else WSPassword = WebServer.Get("Password");
+            if (WSPassword == null) WSPassword = "";
             if (!WebServer.Exists("EveryRequestRequiresPassword")) WebServer.Set("EveryRequestRequiresPassword", "false");
             if (!WebServer.Exists("AllowExternalConnections")) WebServer.Set("AllowExternalConnections", "false");
-
+            if (!WebServer.Exists("ExperimentalFeatures")) WebServer.Set("ExperimentalFeatures", "false");
             if (!AccountControl.Exists("AllowExternalConnections")) AccountControl.Set("AllowExternalConnections", "false");
             if (!AccountControl.Exists("RelaunchDelay")) AccountControl.Set("RelaunchDelay", "60");
             if (!AccountControl.Exists("LauncherDelayNumber")) AccountControl.Set("LauncherDelayNumber", "9");
@@ -921,7 +922,7 @@ namespace RBX_Alt_Manager
 
             if (WebServer.Get<bool>("EveryRequestRequiresPassword") && (WSPassword.Length < 6 || Password != WSPassword)) return Reply("Invalid Password, make sure your password contains 6 or more characters", false, 401, "Invalid Password");
 
-            if ((Method == "GetCookie" || Method == "GetAccounts" || Method == "LaunchAccount" || Method == "KillProcess") && (WSPassword.Length < 6 || Password != WSPassword)) return Reply("Invalid Password, make sure your password contains 6 or more characters", false, 401, "Invalid Password");
+            else if ((Method == "GetCookie" || Method == "GetAccounts" || Method == "LaunchAccount" || Method == "KillProcess") && (WSPassword.Length < 6 || Password != WSPassword)) return Reply("Invalid Password, make sure your password contains 6 or more characters", false, 401, "Invalid Password");
 
             if (Method == "GetAccounts")
             {
@@ -971,7 +972,30 @@ namespace RBX_Alt_Manager
 
                 return Reply(JsonConvert.SerializeObject(Objects), true);
             }
-
+            if (Method == "RunningRobloxProcesses" && WebServer.Get<bool>("ExperimentalFeatures"))
+            {
+                List<object> Objects = new List<object>();
+                foreach (Process proc in Process.GetProcessesByName("RobloxPlayerBeta"))
+                {
+                    var TrackerMatch = Regex.Match(proc.GetCommandLine(), @"\-b (\d+)");
+                    string TrackerID = TrackerMatch.Success ? TrackerMatch.Groups[1].Value : string.Empty;
+                    foreach (Account acc in AccountsList)
+                    {
+                        if (acc.BrowserTrackerID == TrackerID)
+                        {
+                            Objects.Add(new
+                            {
+                                acc.Username,
+                                acc.UserID,
+                                proc.Id,
+                                proc.Handle
+                            });
+                            break;
+                        }
+                    }
+                }
+                return Reply(JsonConvert.SerializeObject(Objects), true);
+            }
             if (Method == "ImportCookie")
             {
                 Account New = AddAccount(request.QueryString["Cookie"]);
@@ -997,9 +1021,7 @@ namespace RBX_Alt_Manager
             if (Method == "LaunchAccount")
             {
                 if (!WebServer.Get<bool>("AllowLaunchAccount")) return Reply("Method `LaunchAccount` not allowed", false, 401, "Method not allowed");
-
                 bool ValidPlaceId = long.TryParse(request.QueryString["PlaceId"], out long PlaceId); if (!ValidPlaceId) return Reply("Invalid PlaceId provided", false, Raw: "Invalid PlaceId");
-
                 string JobID = !string.IsNullOrEmpty(request.QueryString["JobId"]) ? request.QueryString["JobId"] : "";
                 string FollowUser = request.QueryString["FollowUser"];
                 string JoinVIP = request.QueryString["JoinVIP"];
@@ -1110,6 +1132,18 @@ namespace RBX_Alt_Manager
                 return Reply($"Removed Field {request.QueryString["Field"]} from {account.Username}", true);
             }
 
+            if (Method == "MoveAccountGroup" && !string.IsNullOrEmpty(request.QueryString["Group"]))
+            {
+                if (!WebServer.Get<bool>("AllowAccountEditing")) return Reply("Method `MoveAccountGroup` not allowed", false, 401, "Method not allowed");
+
+                account.Group = request.QueryString["Group"];
+
+                RefreshView();
+                SaveAccounts();
+                
+                return Reply($"Moved {account.Username} to {account.Group}", true);
+            }
+
             if (Method == "SetAvatar" && Body.TryParseJson(out object _))
             {
                 account.SetAvatar(Body);
@@ -1144,7 +1178,6 @@ namespace RBX_Alt_Manager
 
                 return Reply($"Appended Description of {account.Username} with {Body}", true);
             }
-
             return Reply("404 not found", false, 404);
         }
 
