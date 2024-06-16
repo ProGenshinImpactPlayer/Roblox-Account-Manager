@@ -756,7 +756,7 @@ namespace RBX_Alt_Manager
                 throw new Exception(JObject.Parse(dpResponse.Content)?["errors"]?[0]?["message"].Value<string>() ?? $"Something went wrong\n{dpResponse.StatusCode}: {dpResponse.Content}");
         }
 
-        public void SetAvatar(string AvatarJSONData)
+        public void SetAvatar(string AvatarJSONData, bool showMissingAssets = true)
         {
             if (string.IsNullOrEmpty(AvatarJSONData)) return;
             if (!AvatarJSONData.TryParseJson(out JObject Avatar)) return;
@@ -798,7 +798,7 @@ namespace RBX_Alt_Manager
                 {
                     var ResponseJson = JObject.Parse(Response.Content);
 
-                    if (ResponseJson.ContainsKey("invalidAssetIds"))
+                    if (ResponseJson.ContainsKey("invalidAssetIds") & showMissingAssets)
                         AccountManager.Instance.InvokeIfRequired(() => new MissingAssets(this, ResponseJson["invalidAssetIds"].Select(asset => asset.Value<long>()).ToArray()).Show());
                 }
             }

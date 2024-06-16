@@ -1146,7 +1146,7 @@ namespace RBX_Alt_Manager
 
             if (Method == "SetAvatar" && Body.TryParseJson(out object _))
             {
-                account.SetAvatar(Body);
+                account.SetAvatar(Body, false);
 
                 return Reply($"Attempting to set avatar of {account.Username} to {Body}", true);
             }
