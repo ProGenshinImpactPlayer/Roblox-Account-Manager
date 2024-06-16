@@ -975,11 +975,13 @@ namespace RBX_Alt_Manager
             if (Method == "RunningRobloxProcesses" && WebServer.Get<bool>("ExperimentalFeatures"))
             {
                 List<object> Objects = new List<object>();
-                foreach (Process proc in Process.GetProcessesByName("RobloxPlayerBeta.exe"))
+                foreach (Process proc in Process.GetProcessesByName("RobloxPlayerBeta"))
                 {
-                    var TrackerMatch = Regex.Match(proc.GetCommandLine(), @"\-b (\d+)");
+                    Console.WriteLine(proc.GetCommandLine());
+                    var TrackerMatch = Regex.Match(proc.GetCommandLine(), @"browsertrackerid:(\d+)");
                     string TrackerID = TrackerMatch.Success ? TrackerMatch.Groups[1].Value : string.Empty;
                     var acc = AccountsList.Find(account => account.BrowserTrackerID == TrackerID);
+                    if (acc == null) continue;
                     Objects.Add(new
                     {
                         acc.Username,
