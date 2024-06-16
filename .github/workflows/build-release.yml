@@ -43,7 +43,7 @@ jobs:
       working-directory: ${{env.GITHUB_WORKSPACE}}
       # Add additional options to the MSBuild command line here (like platform or verbosity level).
       # See https://docs.microsoft.com/visualstudio/msbuild/msbuild-command-line-reference
-      run: msbuild ${{env.SOLUTION_FILE_PATH}} /m /p:platform=Release /p:Configuration=x64
+      run: msbuild ${{env.SOLUTION_FILE_PATH}} /m /p:platform=x64 /p:Configuration=Release
     - name: Upload Release x64
       uses: actions/upload-artifact@v3
       with:
@@ -54,7 +54,7 @@ jobs:
       working-directory: ${{env.GITHUB_WORKSPACE}}
       # Add additional options to the MSBuild command line here (like platform or verbosity level).
       # See https://docs.microsoft.com/visualstudio/msbuild/msbuild-command-line-reference
-      run: msbuild ${{env.SOLUTION_FILE_PATH}} /m /p:platform=Release /p:Configuration=x84
+      run: msbuild ${{env.SOLUTION_FILE_PATH}} /m /p:platform=x86 /p:Configuration=Release
     - name: Upload Release x86
       uses: actions/upload-artifact@v3
       with:
@@ -65,7 +65,7 @@ jobs:
       working-directory: ${{env.GITHUB_WORKSPACE}}
       # Add additional options to the MSBuild command line here (like platform or verbosity level).
       # See https://docs.microsoft.com/visualstudio/msbuild/msbuild-command-line-reference
-      run: msbuild ${{env.SOLUTION_FILE_PATH}} /m /p:platform=Release /p:Configuration=AnyCPU
+      run: msbuild ${{env.SOLUTION_FILE_PATH}} /m /p:platform=AnyCPU /p:Configuration=Release
     - name: Upload Release AnyCPU
       uses: actions/upload-artifact@v3
       with:
