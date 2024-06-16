@@ -7,9 +7,10 @@ name: MSBuild Release
 
 on:
   push:
-    branches: [ "dev" ]
+    branches:
+      - "**"
   pull_request:
-    branches: [ "dev" ]
+      - "**"
 
 env:
   # Path to the solution file relative to the root of the project.
