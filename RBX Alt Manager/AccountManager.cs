@@ -979,20 +979,14 @@ namespace RBX_Alt_Manager
                 {
                     var TrackerMatch = Regex.Match(proc.GetCommandLine(), @"\-b (\d+)");
                     string TrackerID = TrackerMatch.Success ? TrackerMatch.Groups[1].Value : string.Empty;
-                    foreach (Account acc in AccountsList)
+                    var acc = AccountsList.Find(account => account.BrowserTrackerID == TrackerID);
+                    Objects.Add(new
                     {
-                        if (acc.BrowserTrackerID == TrackerID)
-                        {
-                            Objects.Add(new
-                            {
-                                acc.Username,
-                                acc.UserID,
-                                proc.Id,
-                                proc.Handle
-                            });
-                            break;
-                        }
-                    }
+                        acc.Username,
+                        acc.UserID,
+                        proc.Id,
+                        proc.Handle
+                    });
                 }
                 return Reply(JsonConvert.SerializeObject(Objects), true);
             }
