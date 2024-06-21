@@ -698,18 +698,22 @@ namespace RBX_Alt_Manager
                     RestRequest request = new RestRequest("v1/join-game-instance", Method.Post);
                     request.AddCookie(".ROBLOSECURITY", acc.SecurityToken, "/", ".roblox.com");
                     request.AddHeader("Content-Type", "application/json");
-
+                    request.AddHeader("Origin", "https://www.roblox.com");
+                    request.AddHeader("Referer", $"https://www.roblox.com/games/{CurrentPlaceID}/");
+                    request.AddHeader("User-Agent", "Roblox/WinInet");
+                    
                     if (IsUniversePlace)
-                        request.AddJsonBody(new { gameId = server.id, placeId = CurrentPlaceID, isTeleport = true });
+                        request.AddJsonBody(new { gameId = server.id, gameJoinAttemptId = server.id, placeId = CurrentPlaceID, isTeleport = true });
                     else
-                        request.AddJsonBody(new { gameId = server.id, placeId = CurrentPlaceID });
+                        request.AddJsonBody(new { gameId = server.id, gameJoinAttemptId = server.id, placeId = CurrentPlaceID });
 
                     RestResponse response = await AccountManager.GameJoinClient.ExecuteAsync(request);
 
                     if (response.StatusCode == HttpStatusCode.OK)
                     {
                         JObject JS = JObject.Parse(response.Content);
-                        string IP = JS?["joinScript"]?.Value<JObject>()?["MachineAddress"]?.Value<string>() ?? string.Empty;
+                        string IP = JS?["joinScript"]?.Value<JObject>()?["UdmuxEndpoints"]?.Value<JArray>()?[0]?.Value<JObject>()?["Address"]?.Value<string>() ?? string.Empty;
+                        
 
                         if (string.IsNullOrEmpty(IP))
                         {
