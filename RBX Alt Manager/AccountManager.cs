@@ -2200,14 +2200,20 @@ namespace RBX_Alt_Manager
         private void setFPSToolStripMenuItem_Click(object sender, EventArgs e)
         {
             var resp = ShowDialog("FPS", "Account FPS", SelectedAccount != null ? SelectedAccount.FpsCap.ToString() : "60");
+            if (resp == "/UC") return;
+
+            int? fps;
             try
             {
-                var fps = int.Parse(resp);
-                SelectedAccount!.FpsCap = fps;
+                fps = int.Parse(resp);
             }
             catch (FormatException)
             {
-                SelectedAccount!.FpsCap = null;
+                fps = null;
+            }
+            foreach (Account acc in SelectedAccounts)
+            {
+                acc.FpsCap = fps;
             }
         }
     }
