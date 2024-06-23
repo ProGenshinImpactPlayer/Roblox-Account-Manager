@@ -965,6 +965,7 @@ namespace RBX_Alt_Manager
                         LastUsed = acc.LastUse.ToRobloxTick(),
                         Cookie = ShowCookies ? acc.SecurityToken : null,
                         acc.Fields,
+                        acc.FpsCap
                     };
 
                     Objects.Add(AccountObject);
@@ -1173,6 +1174,21 @@ namespace RBX_Alt_Manager
 
                 return Reply($"Appended Description of {account.Username} with {Body}", true);
             }
+
+            if (Method == "GetAccountFpsCap") return Reply(account.FpsCap.ToString(), true);
+
+            if (Method == "SetAccountFpsCap")
+            {
+                if (Body == "none")
+                {
+                    account.FpsCap = null;
+                    return Reply("Successfully removed the account FPS cap.", true);
+                }
+                var fps = int.Parse(Body);
+                account.FpsCap = fps;
+                return Reply($"Successfully set the fps cap to {fps}", true);
+            }
+            
             return Reply("404 not found", false, 404);
         }
 
@@ -2211,7 +2227,7 @@ namespace RBX_Alt_Manager
             {
                 fps = null;
             }
-            foreach (Account acc in SelectedAccounts)
+            foreach (Account acc in AccountsView.SelectedObjects)
             {
                 acc.FpsCap = fps;
             }
