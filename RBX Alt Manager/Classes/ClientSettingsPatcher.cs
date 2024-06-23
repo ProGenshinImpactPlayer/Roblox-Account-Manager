@@ -30,13 +30,16 @@ namespace RBX_Alt_Manager.Classes
                 File.Copy(CustomFN, SettingsFN);
             else if (AccountManager.General.Get<bool>("UnlockFPS"))
             {
+                int customFPS = fps ?? (AccountManager.General.Exists("MaxFPSValue")
+                    ? AccountManager.General.Get<int>("MaxFPSValue")
+                    : 240);
                 if (File.Exists(SettingsFN) && File.ReadAllText(SettingsFN).TryParseJson(out JObject Settings))
                 {
-                    Settings["DFIntTaskSchedulerTargetFps"] = fps ?? (AccountManager.General.Exists("MaxFPSValue") ? AccountManager.General.Get<int>("MaxFPSValue") : 240);
+                    Settings["DFIntTaskSchedulerTargetFps"] = customFPS;
                     File.WriteAllText(SettingsFN, Settings.ToString(Newtonsoft.Json.Formatting.None));
                 }
                 else
-                    File.WriteAllText(SettingsFN, "{\"DFIntTaskSchedulerTargetFps\":240}");
+                    File.WriteAllText(SettingsFN, $"{{\"DFIntTaskSchedulerTargetFps\":{customFPS}}}");
             }
         }
     }
