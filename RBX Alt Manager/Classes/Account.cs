@@ -26,6 +26,8 @@ namespace RBX_Alt_Manager
         private string _Alias = "";
         private string _Description = "";
         private string _Password = "";
+        private int? _FpsCap;
+        
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)] public string Group { get; set; } = "Default";
         public long UserID;
         public Dictionary<string, string> Fields = new Dictionary<string, string>();
@@ -48,7 +50,17 @@ namespace RBX_Alt_Manager
         }
 
         public string BrowserTrackerID;
-
+        
+        public int? FpsCap
+        {
+            get => _FpsCap;
+            set
+            {
+                _FpsCap = value;
+                AccountManager.SaveAccounts();
+            }
+        }
+        
         public string Alias
         {
             get => _Alias;
@@ -504,7 +516,7 @@ namespace RBX_Alt_Manager
                 BrowserTrackerID = r.Next(100000, 175000).ToString() + r.Next(100000, 900000).ToString(); // oh god this is ugly
             }
 
-            try { ClientSettingsPatcher.PatchSettings(); } catch (Exception Ex) { Program.Logger.Error($"Failed to patch ClientAppSettings: {Ex}"); }
+            try { ClientSettingsPatcher.PatchSettings(FpsCap); } catch (Exception Ex) { Program.Logger.Error($"Failed to patch ClientAppSettings: {Ex}"); }
 
             if (!GetCSRFToken(out string Token)) return $"ERROR: Account Session Expired, re-add the account or try again. (Invalid X-CSRF-Token)\n{Token}";
 

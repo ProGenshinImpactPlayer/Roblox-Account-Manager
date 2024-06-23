@@ -2196,5 +2196,19 @@ namespace RBX_Alt_Manager
 
             try { await Presence.UpdatePresence(VisibleAccounts.Select(account => account.UserID).ToArray()); } catch { }
         }
+
+        private void setFPSToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var resp = ShowDialog("FPS", "Account FPS", SelectedAccount != null ? SelectedAccount.FpsCap.ToString() : "60");
+            try
+            {
+                var fps = int.Parse(resp);
+                SelectedAccount!.FpsCap = fps;
+            }
+            catch (FormatException)
+            {
+                SelectedAccount!.FpsCap = null;
+            }
+        }
     }
 }

@@ -63,6 +63,7 @@ namespace RBX_Alt_Manager
             this.infoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.groupsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.infoToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.setFPSToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.viewFieldsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ShowDetailsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.getAuthenticationTicketToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -87,11 +88,11 @@ namespace RBX_Alt_Manager
             this.PasswordEncryptionButton = new System.Windows.Forms.Button();
             this.JobID = new RBX_Alt_Manager.Classes.BorderedTextBox();
             this.AccountsView = new BrightIdeasSoftware.ObjectListView();
-            this.Username = ((BrightIdeasSoftware.OLVColumn)(new BrightIdeasSoftware.OLVColumn()));
-            this.AccountAlias = ((BrightIdeasSoftware.OLVColumn)(new BrightIdeasSoftware.OLVColumn()));
-            this.Description = ((BrightIdeasSoftware.OLVColumn)(new BrightIdeasSoftware.OLVColumn()));
-            this.Group = ((BrightIdeasSoftware.OLVColumn)(new BrightIdeasSoftware.OLVColumn()));
-            this.LastUsedColumn = ((BrightIdeasSoftware.OLVColumn)(new BrightIdeasSoftware.OLVColumn()));
+            this.Username = new BrightIdeasSoftware.OLVColumn();
+            this.AccountAlias = new BrightIdeasSoftware.OLVColumn();
+            this.Description = new BrightIdeasSoftware.OLVColumn();
+            this.Group = new BrightIdeasSoftware.OLVColumn();
+            this.LastUsedColumn = new BrightIdeasSoftware.OLVColumn();
             this.EditTheme = new System.Windows.Forms.Button();
             this.LaunchNexus = new System.Windows.Forms.Button();
             this.ConfigButton = new System.Windows.Forms.Button();
@@ -142,11 +143,7 @@ namespace RBX_Alt_Manager
             // 
             // AddAccountsStrip
             // 
-            this.AddAccountsStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.manualToolStripMenuItem,
-            this.bulkUserPassToolStripMenuItem,
-            this.byCookieToolStripMenuItem,
-            this.customURLJSToolStripMenuItem});
+            this.AddAccountsStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] { this.manualToolStripMenuItem, this.bulkUserPassToolStripMenuItem, this.byCookieToolStripMenuItem, this.customURLJSToolStripMenuItem });
             this.AddAccountsStrip.Name = "AddAccountsStrip";
             this.AddAccountsStrip.Size = new System.Drawing.Size(179, 92);
             // 
@@ -258,22 +255,9 @@ namespace RBX_Alt_Manager
             // 
             // AccountsStrip
             // 
-            this.AccountsStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.addAccountsToolStripMenuItem,
-            this.removeAccountToolStripMenuItem,
-            this.copyToolStripMenuItem,
-            this.sortAlphabeticallyToolStripMenuItem,
-            this.quickLogInToolStripMenuItem,
-            this.moveGroupUpToolStripMenuItem,
-            this.infoToolStripMenuItem,
-            this.viewFieldsToolStripMenuItem,
-            this.ShowDetailsToolStripMenuItem,
-            this.getAuthenticationTicketToolStripMenuItem,
-            this.copySecurityTokenToolStripMenuItem,
-            this.copyRbxplayerLinkToolStripMenuItem,
-            this.copyAppLinkToolStripMenuItem});
+            this.AccountsStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] { this.addAccountsToolStripMenuItem, this.removeAccountToolStripMenuItem, this.copyToolStripMenuItem, this.sortAlphabeticallyToolStripMenuItem, this.quickLogInToolStripMenuItem, this.moveGroupUpToolStripMenuItem, this.infoToolStripMenuItem, this.setFPSToolStripMenuItem, this.viewFieldsToolStripMenuItem, this.ShowDetailsToolStripMenuItem, this.getAuthenticationTicketToolStripMenuItem, this.copySecurityTokenToolStripMenuItem, this.copyRbxplayerLinkToolStripMenuItem, this.copyAppLinkToolStripMenuItem });
             this.AccountsStrip.Name = "contextMenuStrip1";
-            this.AccountsStrip.Size = new System.Drawing.Size(216, 290);
+            this.AccountsStrip.Size = new System.Drawing.Size(216, 312);
             // 
             // addAccountsToolStripMenuItem
             // 
@@ -291,12 +275,7 @@ namespace RBX_Alt_Manager
             // 
             // copyToolStripMenuItem
             // 
-            this.copyToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.copyUsernameToolStripMenuItem,
-            this.copyPasswordToolStripMenuItem,
-            this.copyUserPassComboToolStripMenuItem,
-            this.copyProfileToolStripMenuItem,
-            this.copyUserIdToolStripMenuItem});
+            this.copyToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] { this.copyUsernameToolStripMenuItem, this.copyPasswordToolStripMenuItem, this.copyUserPassComboToolStripMenuItem, this.copyProfileToolStripMenuItem, this.copyUserIdToolStripMenuItem });
             this.copyToolStripMenuItem.Name = "copyToolStripMenuItem";
             this.copyToolStripMenuItem.Size = new System.Drawing.Size(215, 22);
             this.copyToolStripMenuItem.Text = "Copy";
@@ -352,10 +331,7 @@ namespace RBX_Alt_Manager
             // 
             // moveGroupUpToolStripMenuItem
             // 
-            this.moveGroupUpToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toggleToolStripMenuItem,
-            this.moveToToolStripMenuItem,
-            this.copyGroupToolStripMenuItem});
+            this.moveGroupUpToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] { this.toggleToolStripMenuItem, this.moveToToolStripMenuItem, this.copyGroupToolStripMenuItem });
             this.moveGroupUpToolStripMenuItem.Name = "moveGroupUpToolStripMenuItem";
             this.moveGroupUpToolStripMenuItem.Size = new System.Drawing.Size(215, 22);
             this.moveGroupUpToolStripMenuItem.Text = "Groups";
@@ -383,9 +359,7 @@ namespace RBX_Alt_Manager
             // 
             // infoToolStripMenuItem
             // 
-            this.infoToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.groupsToolStripMenuItem,
-            this.infoToolStripMenuItem1});
+            this.infoToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] { this.groupsToolStripMenuItem, this.infoToolStripMenuItem1 });
             this.infoToolStripMenuItem.Name = "infoToolStripMenuItem";
             this.infoToolStripMenuItem.Size = new System.Drawing.Size(215, 22);
             this.infoToolStripMenuItem.Text = "Help";
@@ -403,6 +377,13 @@ namespace RBX_Alt_Manager
             this.infoToolStripMenuItem1.Size = new System.Drawing.Size(115, 22);
             this.infoToolStripMenuItem1.Text = "Info";
             this.infoToolStripMenuItem1.Click += new System.EventHandler(this.infoToolStripMenuItem1_Click);
+            // 
+            // setFPSToolStripMenuItem
+            // 
+            this.setFPSToolStripMenuItem.Name = "setFPSToolStripMenuItem";
+            this.setFPSToolStripMenuItem.Size = new System.Drawing.Size(215, 22);
+            this.setFPSToolStripMenuItem.Text = "Set FPS";
+            this.setFPSToolStripMenuItem.Click += new System.EventHandler(this.setFPSToolStripMenuItem_Click);
             // 
             // viewFieldsToolStripMenuItem
             // 
@@ -520,10 +501,7 @@ namespace RBX_Alt_Manager
             // 
             // OpenBrowserStrip
             // 
-            this.OpenBrowserStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.customURLToolStripMenuItem,
-            this.URLJSToolStripMenuItem,
-            this.joinGroupToolStripMenuItem});
+            this.OpenBrowserStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] { this.customURLToolStripMenuItem, this.URLJSToolStripMenuItem, this.joinGroupToolStripMenuItem });
             this.OpenBrowserStrip.Name = "OpenBrowserStrip";
             this.OpenBrowserStrip.Size = new System.Drawing.Size(168, 70);
             // 
@@ -558,8 +536,7 @@ namespace RBX_Alt_Manager
             this.SaveToAccount.Name = "SaveToAccount";
             this.SaveToAccount.Size = new System.Drawing.Size(22, 22);
             this.SaveToAccount.TabIndex = 3;
-            this.SaveTooltip.SetToolTip(this.SaveToAccount, "Saves the PlaceId + JobId to the selected account\r\nTo remove, clear out the text " +
-        "boxes on the left and click Save");
+            this.SaveTooltip.SetToolTip(this.SaveToAccount, "Saves the PlaceId + JobId to the selected account\r\nTo remove, clear out the text " + "boxes on the left and click Save");
             this.SaveToAccount.UseVisualStyleBackColor = true;
             this.SaveToAccount.Click += new System.EventHandler(this.SaveToAccount_Click);
             // 
@@ -578,15 +555,12 @@ namespace RBX_Alt_Manager
             this.ShuffleIcon.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.ShuffleIcon.TabIndex = 1004;
             this.ShuffleIcon.TabStop = false;
-            this.SaveTooltip.SetToolTip(this.ShuffleIcon, "Selects a random JobId every single time you press \"Join Server\"\r\nThis setting wi" +
-        "ll be ignored if you have a JobId set");
+            this.SaveTooltip.SetToolTip(this.ShuffleIcon, "Selects a random JobId every single time you press \"Join Server\"\r\nThis setting wi" + "ll be ignored if you have a JobId set");
             this.ShuffleIcon.Click += new System.EventHandler(this.ShuffleIcon_Click);
             // 
             // DefaultEncryptionButton
             // 
-            this.DefaultEncryptionButton.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.DefaultEncryptionButton.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) | System.Windows.Forms.AnchorStyles.Left) | System.Windows.Forms.AnchorStyles.Right)));
             this.DefaultEncryptionButton.Cursor = System.Windows.Forms.Cursors.Help;
             this.DefaultEncryptionButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.DefaultEncryptionButton.Location = new System.Drawing.Point(3, 59);
@@ -595,16 +569,13 @@ namespace RBX_Alt_Manager
             this.DefaultEncryptionButton.TabIndex = 3;
             this.DefaultEncryptionButton.Tag = "UseControlFont";
             this.DefaultEncryptionButton.Text = "Default Encryption";
-            this.SaveTooltip.SetToolTip(this.DefaultEncryptionButton, "This encryption method doesn\'t allow sharing\r\nyour account data across multiple d" +
-        "evices\r\nunless you manually decrypt the data");
+            this.SaveTooltip.SetToolTip(this.DefaultEncryptionButton, "This encryption method doesn\'t allow sharing\r\nyour account data across multiple d" + "evices\r\nunless you manually decrypt the data");
             this.DefaultEncryptionButton.UseVisualStyleBackColor = true;
             this.DefaultEncryptionButton.Click += new System.EventHandler(this.DefaultEncryptionButton_Click);
             // 
             // PasswordEncryptionButton
             // 
-            this.PasswordEncryptionButton.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.PasswordEncryptionButton.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) | System.Windows.Forms.AnchorStyles.Left) | System.Windows.Forms.AnchorStyles.Right)));
             this.PasswordEncryptionButton.Cursor = System.Windows.Forms.Cursors.Help;
             this.PasswordEncryptionButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.PasswordEncryptionButton.Location = new System.Drawing.Point(3, 115);
@@ -613,9 +584,7 @@ namespace RBX_Alt_Manager
             this.PasswordEncryptionButton.TabIndex = 5;
             this.PasswordEncryptionButton.Tag = "UseControlFont";
             this.PasswordEncryptionButton.Text = "Password Locked (Recommended)";
-            this.SaveTooltip.SetToolTip(this.PasswordEncryptionButton, "This encryption method allows sharing\r\nyour account data across multiple devices\r" +
-        "\nand is recommended in order to prevent loss\r\nof data which can also be easily s" +
-        "tored securely");
+            this.SaveTooltip.SetToolTip(this.PasswordEncryptionButton, "This encryption method allows sharing\r\nyour account data across multiple devices\r" + "\nand is recommended in order to prevent loss\r\nof data which can also be easily s" + "tored securely");
             this.PasswordEncryptionButton.UseVisualStyleBackColor = true;
             this.PasswordEncryptionButton.Click += new System.EventHandler(this.PasswordEncryptionButton_Click);
             // 
@@ -627,8 +596,7 @@ namespace RBX_Alt_Manager
             this.JobID.Name = "JobID";
             this.JobID.Size = new System.Drawing.Size(143, 20);
             this.JobID.TabIndex = 2;
-            this.SaveTooltip.SetToolTip(this.JobID, "Job ID is a unique ID assigned to every roblox server.\r\nYou may also put a Privat" +
-        "e Server link in this box to join it.");
+            this.SaveTooltip.SetToolTip(this.JobID, "Job ID is a unique ID assigned to every roblox server.\r\nYou may also put a Privat" + "e Server link in this box to join it.");
             // 
             // AccountsView
             // 
@@ -638,15 +606,9 @@ namespace RBX_Alt_Manager
             this.AccountsView.AllColumns.Add(this.Group);
             this.AccountsView.AllColumns.Add(this.LastUsedColumn);
             this.AccountsView.AllowDrop = true;
-            this.AccountsView.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.AccountsView.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) | System.Windows.Forms.AnchorStyles.Left) | System.Windows.Forms.AnchorStyles.Right)));
             this.AccountsView.CellEditUseWholeCell = false;
-            this.AccountsView.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
-            this.Username,
-            this.AccountAlias,
-            this.Description,
-            this.Group});
+            this.AccountsView.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] { this.Username, this.AccountAlias, this.Description, this.Group });
             this.AccountsView.ContextMenuStrip = this.AccountsStrip;
             this.AccountsView.Cursor = System.Windows.Forms.Cursors.Default;
             this.AccountsView.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.75F);
@@ -766,8 +728,7 @@ namespace RBX_Alt_Manager
             // 
             // PasswordLayoutPanel
             // 
-            this.PasswordLayoutPanel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.PasswordLayoutPanel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) | System.Windows.Forms.AnchorStyles.Right)));
             this.PasswordLayoutPanel.ColumnCount = 1;
             this.PasswordLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.PasswordLayoutPanel.Controls.Add(this.UnlockButton, 0, 3);
@@ -787,9 +748,7 @@ namespace RBX_Alt_Manager
             // 
             // UnlockButton
             // 
-            this.UnlockButton.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.UnlockButton.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) | System.Windows.Forms.AnchorStyles.Left) | System.Windows.Forms.AnchorStyles.Right)));
             this.UnlockButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.UnlockButton.Location = new System.Drawing.Point(3, 92);
             this.UnlockButton.Name = "UnlockButton";
@@ -802,9 +761,7 @@ namespace RBX_Alt_Manager
             // 
             // PasswordTextBox
             // 
-            this.PasswordTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.PasswordTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) | System.Windows.Forms.AnchorStyles.Left) | System.Windows.Forms.AnchorStyles.Right)));
             this.PasswordTextBox.Location = new System.Drawing.Point(3, 67);
             this.PasswordTextBox.Name = "PasswordTextBox";
             this.PasswordTextBox.PasswordChar = '*';
@@ -814,9 +771,7 @@ namespace RBX_Alt_Manager
             // 
             // AccessLabel
             // 
-            this.AccessLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.AccessLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) | System.Windows.Forms.AnchorStyles.Left) | System.Windows.Forms.AnchorStyles.Right)));
             this.AccessLabel.AutoSize = true;
             this.AccessLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.AccessLabel.Location = new System.Drawing.Point(3, 0);
@@ -829,9 +784,7 @@ namespace RBX_Alt_Manager
             // 
             // PasswordRequiredLabel
             // 
-            this.PasswordRequiredLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.PasswordRequiredLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) | System.Windows.Forms.AnchorStyles.Left) | System.Windows.Forms.AnchorStyles.Right)));
             this.PasswordRequiredLabel.AutoSize = true;
             this.PasswordRequiredLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F);
             this.PasswordRequiredLabel.Location = new System.Drawing.Point(3, 25);
@@ -844,8 +797,7 @@ namespace RBX_Alt_Manager
             // 
             // PasswordSelectionPanel
             // 
-            this.PasswordSelectionPanel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.PasswordSelectionPanel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) | System.Windows.Forms.AnchorStyles.Right)));
             this.PasswordSelectionPanel.ColumnCount = 1;
             this.PasswordSelectionPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.PasswordSelectionPanel.Controls.Add(this.SetPasswordButton, 0, 2);
@@ -862,9 +814,7 @@ namespace RBX_Alt_Manager
             // 
             // SetPasswordButton
             // 
-            this.SetPasswordButton.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.SetPasswordButton.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) | System.Windows.Forms.AnchorStyles.Left) | System.Windows.Forms.AnchorStyles.Right)));
             this.SetPasswordButton.Enabled = false;
             this.SetPasswordButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.SetPasswordButton.Location = new System.Drawing.Point(3, 51);
@@ -878,9 +828,7 @@ namespace RBX_Alt_Manager
             // 
             // PasswordSelectionTB
             // 
-            this.PasswordSelectionTB.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.PasswordSelectionTB.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) | System.Windows.Forms.AnchorStyles.Left) | System.Windows.Forms.AnchorStyles.Right)));
             this.PasswordSelectionTB.Location = new System.Drawing.Point(3, 25);
             this.PasswordSelectionTB.Name = "PasswordSelectionTB";
             this.PasswordSelectionTB.PasswordChar = '*';
@@ -891,9 +839,7 @@ namespace RBX_Alt_Manager
             // 
             // Password2Label
             // 
-            this.Password2Label.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.Password2Label.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) | System.Windows.Forms.AnchorStyles.Left) | System.Windows.Forms.AnchorStyles.Right)));
             this.Password2Label.AutoSize = true;
             this.Password2Label.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F);
             this.Password2Label.Location = new System.Drawing.Point(3, 0);
@@ -906,8 +852,7 @@ namespace RBX_Alt_Manager
             // 
             // EncryptionSelectionPanel
             // 
-            this.EncryptionSelectionPanel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.EncryptionSelectionPanel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) | System.Windows.Forms.AnchorStyles.Right)));
             this.EncryptionSelectionPanel.ColumnCount = 1;
             this.EncryptionSelectionPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.EncryptionSelectionPanel.Controls.Add(this.PasswordEncryptionButton, 0, 2);
@@ -925,9 +870,7 @@ namespace RBX_Alt_Manager
             // 
             // EncSelectionLabel
             // 
-            this.EncSelectionLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.EncSelectionLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) | System.Windows.Forms.AnchorStyles.Left) | System.Windows.Forms.AnchorStyles.Right)));
             this.EncSelectionLabel.AutoSize = true;
             this.EncSelectionLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F);
             this.EncSelectionLabel.Location = new System.Drawing.Point(3, 0);
@@ -1094,8 +1037,9 @@ namespace RBX_Alt_Manager
             this.EncryptionSelectionPanel.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
-
         }
+
+        private System.Windows.Forms.ToolStripMenuItem setFPSToolStripMenuItem;
 
         #endregion
         public Classes.BorderedTextBox PlaceID;

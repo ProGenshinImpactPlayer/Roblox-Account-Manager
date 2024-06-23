@@ -6,7 +6,7 @@ namespace RBX_Alt_Manager.Classes
 {
     public static class ClientSettingsPatcher
     {
-        public static void PatchSettings()
+        public static void PatchSettings(int? fps = null)
         {
             DirectoryInfo VersionFolder = null;
 
@@ -32,7 +32,7 @@ namespace RBX_Alt_Manager.Classes
             {
                 if (File.Exists(SettingsFN) && File.ReadAllText(SettingsFN).TryParseJson(out JObject Settings))
                 {
-                    Settings["DFIntTaskSchedulerTargetFps"] = AccountManager.General.Exists("MaxFPSValue") ? AccountManager.General.Get<int>("MaxFPSValue") : 240;
+                    Settings["DFIntTaskSchedulerTargetFps"] = fps ?? (AccountManager.General.Exists("MaxFPSValue") ? AccountManager.General.Get<int>("MaxFPSValue") : 240);
                     File.WriteAllText(SettingsFN, Settings.ToString(Newtonsoft.Json.Formatting.None));
                 }
                 else
