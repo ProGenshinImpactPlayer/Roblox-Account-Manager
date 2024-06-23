@@ -2215,6 +2215,7 @@ namespace RBX_Alt_Manager
             {
                 acc.FpsCap = fps;
             }
+            SaveAccounts();
         }
     }
 }
